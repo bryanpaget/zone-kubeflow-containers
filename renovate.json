@@ -9,13 +9,13 @@
       "matchStrings": [
         "code-server\\s+--install-extension\\s+(?<depName>[^@\\s]+)@(?<currentValue>[\\w\\.\\-]+)"
       ],
-      "datasourceTemplate": "open-vsx",
+      "datasourceTemplate": "visual-studio-marketplace",
       "versioningTemplate": "semver-coerced"
     }
   ],
   "packageRules": [
     {
-      "matchDatasources": ["open-vsx"],
+      "matchDatasources": ["visual-studio-marketplace"],
       "enabled": true,
       "rangeStrategy": "bump"
     },
