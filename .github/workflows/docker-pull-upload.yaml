@@ -38,7 +38,7 @@ jobs:
         run: ./.github/scripts/cleanup_runner.sh
 
       # Connect to Azure Container registry (ACR)
-      - uses: azure/docker-login@v1
+      - uses: azure/docker-login@v2
         with:
           login-server: ${{ inputs.registry-name }}
           username: ${{ secrets.REGISTRY_USERNAME }}
