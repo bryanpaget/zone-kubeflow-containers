@@ -1,5 +1,6 @@
 {
   "ignoreDeps": ["k8scc01covidacr.azurecr.io/sas4c"],
+  "dependencyDashboard": true,
   "customManagers": [
     {
       "customType": "regex",
