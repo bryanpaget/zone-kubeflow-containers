@@ -19,13 +19,12 @@
       "matchStringsStrategy": "any"
     }
   ],
-  "customDatasources": [
-    {
-      "name": "my-open-vsx-registry",
+  "customDatasources": {
+    "my-open-vsx-registry": {
       "datasource": "open-vsx",
       "defaultRegistryUrl": "https://open-vsx.org/api"
     }
-  ],
+  },
   "packageRules": [
     {
       "matchDatasources": ["my-open-vsx-registry"],
