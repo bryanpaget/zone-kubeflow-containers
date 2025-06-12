@@ -62,7 +62,7 @@ jobs:
         run: make pull/${{ inputs.image }} REPO=${{ inputs.registry-name }} TAG=${{ inputs.tag }}
 
       - name: Set Up Python for Test Suite
-        uses: actions/setup-python@v4
+        uses: actions/setup-python@v5
         with:
           python-version: "3.10"
 
