@@ -13,21 +13,15 @@
       "matchStrings": [
         "code-server\\s+--install-extension\\s+(?<depName>[^@\\s]+)@(?<currentValue>[^\\s]+)"
       ],
-      "datasourceTemplate": "my-open-vsx-registry",
+      "datasourceTemplate": "open-vsx",
       "packageNameTemplate": "{{depName}}",
       "versioningTemplate": "semver",
       "matchStringsStrategy": "any"
     }
   ],
-  "customDatasources": {
-    "my-open-vsx-registry": {
-      "datasource": "open-vsx",
-      "defaultRegistryUrl": "https://open-vsx.org/api"
-    }
-  },
   "packageRules": [
     {
-      "matchDatasources": ["my-open-vsx-registry"],
+      "matchDatasources": ["open-vsx"],
       "enabled": true,
       "rangeStrategy": "replace"
     }
