@@ -8,7 +8,7 @@
       "description": "Update VSCode extensions installed via code-server",
       "fileMatch": ["^images/mid/Dockerfile$"],
       "matchStrings": [
-        "code-server\\s+--install-extension\\s+(?<packageName>[^@\\s]+)@(?<currentValue>[\\w.-]+)"
+        "code-server\\s+--install-extension\\s+(?<packageName>[^@\\s]+)@(?<currentValue>\\d+\\.\\d+\\.\\d+)"
       ],
       "datasourceTemplate": "open-vsx",
       "versioningTemplate": "semver"
