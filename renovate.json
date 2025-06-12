@@ -7,7 +7,7 @@
       "description": "Update VSCode extensions in Dockerfile",
       "managerFilePatterns": ["Dockerfile"],
       "matchStrings": [
-        "--install-extension (?<packageName>[^@]+)@(?<currentValue>[^\\s]+)"
+        "code-server --install-extension (?<packageName>[^@\\s]+)@(?<currentValue>[^\\s]+)"
       ],
       "datasourceTemplate": "open-vsx",
       "versioningTemplate": "semver"
