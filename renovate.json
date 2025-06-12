@@ -1,16 +1,14 @@
 {
   "$schema": "https://docs.renovatebot.com/renovate-schema.json",
   "dependencyDashboard": true,
-  "ignoreDeps": [
-    "k8scc01covidacr.azurecr.io/sas4c"
-  ],
+  "logLevel": "debug",
   "customManagers": [
     {
       "customType": "regex",
-      "description": "Update VSCode extensions in Dockerfile",
+      "description": "Update VSCode extensions installed via code-server",
       "fileMatch": ["^images/mid/Dockerfile$"],
       "matchStrings": [
-        "code-server\\s+--install-extension\\s+(?<packageName>[^@\\s]+)@(?<currentValue>[0-9\\.]+)"
+        "code-server\\s+--install-extension\\s+(?<packageName>[^@\\s]+)@(?<currentValue>[0-9.]+)"
       ],
       "datasourceTemplate": "open-vsx",
       "versioningTemplate": "semver",
@@ -21,7 +19,7 @@
     {
       "matchDatasources": ["open-vsx"],
       "enabled": true,
-      "rangeStrategy": "replace"
+      "rangeStrategy": "bump"
     }
   ]
 }
