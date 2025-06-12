@@ -1,13 +1,15 @@
 {
-  "$schema": "https://docs.renovatebot.com/renovate-schema.json",
+  "$schema": "https://docs.renovatebot.com/renovate-schema.json", 
   "ignoreDeps": ["k8scc01covidacr.azurecr.io/sas4c"],
   "dependencyDashboard": true,
   "customManagers": [
     {
       "customType": "regex",
       "description": "Update VSCode extensions from Open VSX",
-      "fileMatch": ["images/mid/Dockerfile"],
-      "matchStrings": ["code-server\\s+--install-extension\\s+(?<depName>[^@\\s]+)@(?<currentValue>[\\w\\.\\-]+)"],
+      "fileMatch": ["^images/mid/Dockerfile$"],
+      "matchStrings": [
+        "code-server\\s+--install-extension\\s+(?<packageName>[^\\.@\\s]+\\.[^@\\s]+)@(?<currentValue>\\d+\\.\\d+\\.\\d+)"
+      ],
       "datasourceTemplate": "open-vsx",
       "versioningTemplate": "semver-coerced"
     }
