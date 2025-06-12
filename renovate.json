@@ -19,10 +19,17 @@
       "matchStringsStrategy": "any"
     }
   ],
+  "hostRules": [
+    {
+      "host": "open-vsx.org",
+      "url": "https://open-vsx.org/api"
+    }
+  ],
   "packageRules": [
     {
       "matchDatasources": ["open-vsx"],
-      "enabled": true
+      "enabled": true,
+      "rangeStrategy": "replace" // Keep this for future updates once config is valid
     }
   ]
 }
