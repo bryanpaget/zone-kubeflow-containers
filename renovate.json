@@ -1,5 +1,6 @@
 {
   "$schema": "https://docs.renovatebot.com/renovate-schema.json", 
+  "ignoreDeps": ["k8scc01covidacr.azurecr.io/sas4c"],
   "dependencyDashboard": true,
   "customManagers": [
     {
