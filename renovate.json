@@ -29,7 +29,7 @@
     {
       "matchDatasources": ["open-vsx"],
       "enabled": true,
-      "rangeStrategy": "replace" // Keep this for future updates once config is valid
+      "rangeStrategy": "replace"
     }
   ]
 }
