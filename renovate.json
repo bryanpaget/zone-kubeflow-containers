@@ -10,12 +10,10 @@
       "description": "Update VSCode extensions in Dockerfile",
       "fileMatch": ["^images/mid/Dockerfile$"],
       "matchStrings": [
-        "code-server\\s+--install-extension\\s+(?<depName>[^@\\s]+)@(?<currentValue>[^\\s]+)"
+        "code-server\\s+--install-extension\\s+(?<packageName>[^@\\s]+)@(?<currentValue>[^\\s]+)"
       ],
       "datasourceTemplate": "open-vsx",
-      "packageNameTemplate": "{{depName}}",
-      "versioningTemplate": "semver",
-      "matchStringsStrategy": "any"
+      "versioningTemplate": "semver"
     }
   ],
   "packageRules": [
