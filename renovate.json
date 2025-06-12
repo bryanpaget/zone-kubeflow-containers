@@ -1,0 +1,14 @@
+{
+  "customManagers": [
+    {
+      "customType": "regex",
+      "description": "Update VSCode extensions in Dockerfile",
+      "managerFilePatterns": ["Dockerfile"],
+      "matchStrings": [
+        "--install-extension (?<packageName>[^@]+)@(?<currentValue>[^\\s]+)"
+      ],
+      "datasourceTemplate": "open-vsx",
+      "versioningTemplate": "semver"
+    }
+  ]
+}
