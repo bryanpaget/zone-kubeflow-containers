@@ -14,8 +14,9 @@
         "code-server\\s+--install-extension\\s+(?<depName>[^@\\s]+)@(?<currentValue>[^\\s]+)"
       ],
       "datasourceTemplate": "open-vsx",
+      "packageNameTemplate": "{{depName}}",
       "versioningTemplate": "semver",
-      "packageNameTemplate": "{{depName}}"
+      "matchStringsStrategy": "any"
     }
   ],
   "packageRules": [
