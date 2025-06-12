@@ -1,8 +1,6 @@
 {
   "$schema": "https://docs.renovatebot.com/renovate-schema.json", 
-  "ignoreDeps": [
-    "k8scc01covidacr.azurecr.io/sas4c"
-  ],
+  "ignoreDeps": ["k8scc01covidacr.azurecr.io/sas4c"],
   "dependencyDashboard": true,
   "customManagers": [
     {
@@ -13,9 +11,7 @@
         "code-server\\s+--install-extension\\s+(?<packageName>[^@\\s]+)@(?<currentValue>[\\w.-]+)"
       ],
       "datasourceTemplate": "open-vsx",
-      "versioningTemplate": "semver",
-      "depType": "extension",
-      "matchStringsStrategy": "any"
+      "versioningTemplate": "semver"
     }
   ],
   "packageRules": [
@@ -25,7 +21,7 @@
       "rangeStrategy": "bump"
     },
     {
-      "matchPackages": ["quarto.quarto"],
+      "matchNames": ["quarto.quarto"],
       "enabled": false
     }
   ]
