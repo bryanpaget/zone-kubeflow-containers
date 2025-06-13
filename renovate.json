@@ -5,17 +5,89 @@
   "customManagers": [
     {
       "customType": "regex",
-      "description": "VSCode extensions in code-server Dockerfile (Open VSX)",
+      "description": "ms-python.python from Open VSX",
       "fileMatch": ["^images/mid/Dockerfile$"],
       "matchStrings": [
-        "code-server\\s+--install-extension\\s+(?<packageName>ms-python\\.python)@(?<currentValue>\\d+\\.\\d+\\.\\d+)",
-        "code-server\\s+--install-extension\\s+(?<packageName>ms-python\\.debugpy)@(?<currentValue>\\d+\\.\\d+\\.\\d+)",
-        "code-server\\s+--install-extension\\s+(?<packageName>REditorSupport\\.r)@(?<currentValue>\\d+\\.\\d+\\.\\d+)",
-        "code-server\\s+--install-extension\\s+(?<packageName>ms-ceintl\\.vscode-language-pack-fr)@(?<currentValue>\\d+\\.\\d+\\.\\d+)",
-        "code-server\\s+--install-extension\\s+(?<packageName>quarto\\.quarto)@(?<currentValue>\\d+\\.\\d+\\.\\d+)",
-        "code-server\\s+--install-extension\\s+(?<packageName>dvirtz\\.parquet-viewer)@(?<currentValue>\\d+\\.\\d+\\.\\d+)",
-        "code-server\\s+--install-extension\\s+(?<packageName>redhat\\.vscode-yaml)@(?<currentValue>\\d+\\.\\d+\\.\\d+)",
-        "code-server\\s+--install-extension\\s+(?<packageName>ms-vscode\\.azurecli)@(?<currentValue>\\d+\\.\\d+\\.\\d+)",
+        "code-server\\s+--install-extension\\s+(?<packageName>ms-python\\.python)@(?<currentValue>\\d+\\.\\d+\\.\\d+)"
+      ],
+      "datasourceTemplate": "open-vsx",
+      "versioningTemplate": "semver-coerced"
+    },
+    {
+      "customType": "regex",
+      "description": "ms-python.debugpy from Open VSX",
+      "fileMatch": ["^images/mid/Dockerfile$"],
+      "matchStrings": [
+        "code-server\\s+--install-extension\\s+(?<packageName>ms-python\\.debugpy)@(?<currentValue>\\d+\\.\\d+\\.\\d+)"
+      ],
+      "datasourceTemplate": "open-vsx",
+      "versioningTemplate": "semver-coerced"
+    },
+    {
+      "customType": "regex",
+      "description": "REditorSupport.r from Open VSX",
+      "fileMatch": ["^images/mid/Dockerfile$"],
+      "matchStrings": [
+        "code-server\\s+--install-extension\\s+(?<packageName>REditorSupport\\.r)@(?<currentValue>\\d+\\.\\d+\\.\\d+)"
+      ],
+      "datasourceTemplate": "open-vsx",
+      "versioningTemplate": "semver-coerced"
+    },
+    {
+      "customType": "regex",
+      "description": "ms-ceintl.vscode-language-pack-fr from Open VSX",
+      "fileMatch": ["^images/mid/Dockerfile$"],
+      "matchStrings": [
+        "code-server\\s+--install-extension\\s+(?<packageName>ms-ceintl\\.vscode-language-pack-fr)@(?<currentValue>\\d+\\.\\d+\\.\\d+)"
+      ],
+      "datasourceTemplate": "open-vsx",
+      "versioningTemplate": "semver-coerced"
+    },
+    {
+      "customType": "regex",
+      "description": "quarto.quarto from Open VSX",
+      "fileMatch": ["^images/mid/Dockerfile$"],
+      "matchStrings": [
+        "code-server\\s+--install-extension\\s+(?<packageName>quarto\\.quarto)@(?<currentValue>\\d+\\.\\d+\\.\\d+)"
+      ],
+      "datasourceTemplate": "open-vsx",
+      "versioningTemplate": "semver-coerced"
+    },
+    {
+      "customType": "regex",
+      "description": "dvirtz.parquet-viewer from Open VSX",
+      "fileMatch": ["^images/mid/Dockerfile$"],
+      "matchStrings": [
+        "code-server\\s+--install-extension\\s+(?<packageName>dvirtz\\.parquet-viewer)@(?<currentValue>\\d+\\.\\d+\\.\\d+)"
+      ],
+      "datasourceTemplate": "open-vsx",
+      "versioningTemplate": "semver-coerced"
+    },
+    {
+      "customType": "regex",
+      "description": "redhat.vscode-yaml from Open VSX",
+      "fileMatch": ["^images/mid/Dockerfile$"],
+      "matchStrings": [
+        "code-server\\s+--install-extension\\s+(?<packageName>redhat\\.vscode-yaml)@(?<currentValue>\\d+\\.\\d+\\.\\d+)"
+      ],
+      "datasourceTemplate": "open-vsx",
+      "versioningTemplate": "semver-coerced"
+    },
+    {
+      "customType": "regex",
+      "description": "ms-vscode.azurecli from Open VSX",
+      "fileMatch": ["^images/mid/Dockerfile$"],
+      "matchStrings": [
+        "code-server\\s+--install-extension\\s+(?<packageName>ms-vscode\\.azurecli)@(?<currentValue>\\d+\\.\\d+\\.\\d+)"
+      ],
+      "datasourceTemplate": "open-vsx",
+      "versioningTemplate": "semver-coerced"
+    },
+    {
+      "customType": "regex",
+      "description": "mblode.pretty-formatter from Open VSX",
+      "fileMatch": ["^images/mid/Dockerfile$"],
+      "matchStrings": [
         "code-server\\s+--install-extension\\s+(?<packageName>mblode\\.pretty-formatter)@(?<currentValue>\\d+\\.\\d+\\.\\d+)"
       ],
       "datasourceTemplate": "open-vsx",
