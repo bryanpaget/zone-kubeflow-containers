@@ -1,15 +1,13 @@
 {
   "$schema": "https://docs.renovatebot.com/renovate-schema.json",
-  "ignoreDeps": ["k8scc01covidacr.azurecr.io/sas4c"],
   "dependencyDashboard": true,
+  "ignoreDeps": ["k8scc01covidacr.azurecr.io/sas4c"],
   "customManagers": [
     {
       "customType": "regex",
       "description": "ms-python.python",
       "fileMatch": ["^images/mid/Dockerfile$"],
-      "matchStrings": [
-        "code-server\\s+--install-extension\\s+(?<packageName>ms-python\\.python)@(?<currentValue>\\d+\\.\\d+\\.\\d+)"
-      ],
+      "matchStrings": ["code-server\\s+--install-extension\\s+ms-python\\.python@(?<currentValue>\\d+\\.\\d+\\.\\d+)"],
       "datasourceTemplate": "open-vsx",
       "packageNameTemplate": "ms-python/python",
       "versioningTemplate": "semver-coerced"
@@ -18,9 +16,7 @@
       "customType": "regex",
       "description": "ms-python.debugpy",
       "fileMatch": ["^images/mid/Dockerfile$"],
-      "matchStrings": [
-        "code-server\\s+--install-extension\\s+(?<packageName>ms-python\\.debugpy)@(?<currentValue>\\d+\\.\\d+\\.\\d+)"
-      ],
+      "matchStrings": ["code-server\\s+--install-extension\\s+ms-python\\.debugpy@(?<currentValue>\\d+\\.\\d+\\.\\d+)"],
       "datasourceTemplate": "open-vsx",
       "packageNameTemplate": "ms-python/debugpy",
       "versioningTemplate": "semver-coerced"
@@ -29,9 +25,7 @@
       "customType": "regex",
       "description": "REditorSupport.r",
       "fileMatch": ["^images/mid/Dockerfile$"],
-      "matchStrings": [
-        "code-server\\s+--install-extension\\s+(?<packageName>REditorSupport\\.r)@(?<currentValue>\\d+\\.\\d+\\.\\d+)"
-      ],
+      "matchStrings": ["code-server\\s+--install-extension\\s+REditorSupport\\.r@(?<currentValue>\\d+\\.\\d+\\.\\d+)"],
       "datasourceTemplate": "open-vsx",
       "packageNameTemplate": "REditorSupport/r",
       "versioningTemplate": "semver-coerced"
@@ -40,31 +34,25 @@
       "customType": "regex",
       "description": "ms-ceintl.vscode-language-pack-fr",
       "fileMatch": ["^images/mid/Dockerfile$"],
-      "matchStrings": [
-        "code-server\\s+--install-extension\\s+(?<packageName>ms-ceintl\\.vscode-language-pack-fr)@(?<currentValue>\\d+\\.\\d+\\.\\d+)"
-      ],
+      "matchStrings": ["code-server\\s+--install-extension\\s+ms-ceintl\\.vscode-language-pack-fr@(?<currentValue>\\d+\\.\\d+\\.\\d+)"],
       "datasourceTemplate": "open-vsx",
       "packageNameTemplate": "ms-ceintl/vscode-language-pack-fr",
       "versioningTemplate": "semver-coerced"
     },
     {
-  "customType": "regex",
-  "description": "quarto.quarto",
-  "fileMatch": ["^images/mid/Dockerfile$"],
-  "matchStrings": [
-    "code-server\\s+--install-extension\\s+quarto\\.quarto@(?<currentValue>\\d+\\.\\d+\\.\\d+)"
-  ],
-  "datasourceTemplate": "open-vsx",
-  "packageNameTemplate": "quarto/quarto",
-  "versioningTemplate": "semver-coerced"
+      "customType": "regex",
+      "description": "quarto.quarto",
+      "fileMatch": ["^images/mid/Dockerfile$"],
+      "matchStrings": ["code-server\\s+--install-extension\\s+quarto\\.quarto@(?<currentValue>\\d+\\.\\d+\\.\\d+)"],
+      "datasourceTemplate": "open-vsx",
+      "packageNameTemplate": "quarto/quarto",
+      "versioningTemplate": "semver-coerced"
     },
     {
       "customType": "regex",
       "description": "dvirtz.parquet-viewer",
       "fileMatch": ["^images/mid/Dockerfile$"],
-      "matchStrings": [
-        "code-server\\s+--install-extension\\s+(?<packageName>dvirtz\\.parquet-viewer)@(?<currentValue>\\d+\\.\\d+\\.\\d+)"
-      ],
+      "matchStrings": ["code-server\\s+--install-extension\\s+dvirtz\\.parquet-viewer@(?<currentValue>\\d+\\.\\d+\\.\\d+)"],
       "datasourceTemplate": "open-vsx",
       "packageNameTemplate": "dvirtz/parquet-viewer",
       "versioningTemplate": "semver-coerced"
@@ -73,9 +61,7 @@
       "customType": "regex",
       "description": "redhat.vscode-yaml",
       "fileMatch": ["^images/mid/Dockerfile$"],
-      "matchStrings": [
-        "code-server\\s+--install-extension\\s+(?<packageName>redhat\\.vscode-yaml)@(?<currentValue>\\d+\\.\\d+\\.\\d+)"
-      ],
+      "matchStrings": ["code-server\\s+--install-extension\\s+redhat\\.vscode-yaml@(?<currentValue>\\d+\\.\\d+\\.\\d+)"],
       "datasourceTemplate": "open-vsx",
       "packageNameTemplate": "redhat/vscode-yaml",
       "versioningTemplate": "semver-coerced"
@@ -84,9 +70,7 @@
       "customType": "regex",
       "description": "ms-vscode.azurecli",
       "fileMatch": ["^images/mid/Dockerfile$"],
-      "matchStrings": [
-        "code-server\\s+--install-extension\\s+(?<packageName>ms-vscode\\.azurecli)@(?<currentValue>\\d+\\.\\d+\\.\\d+)"
-      ],
+      "matchStrings": ["code-server\\s+--install-extension\\s+ms-vscode\\.azurecli@(?<currentValue>\\d+\\.\\d+\\.\\d+)"],
       "datasourceTemplate": "open-vsx",
       "packageNameTemplate": "ms-vscode/azurecli",
       "versioningTemplate": "semver-coerced"
@@ -95,9 +79,7 @@
       "customType": "regex",
       "description": "mblode.pretty-formatter",
       "fileMatch": ["^images/mid/Dockerfile$"],
-      "matchStrings": [
-        "code-server\\s+--install-extension\\s+(?<packageName>mblode\\.pretty-formatter)@(?<currentValue>\\d+\\.\\d+\\.\\d+)"
-      ],
+      "matchStrings": ["code-server\\s+--install-extension\\s+mblode\\.pretty-formatter@(?<currentValue>\\d+\\.\\d+\\.\\d+)"],
       "datasourceTemplate": "open-vsx",
       "packageNameTemplate": "mblode/pretty-formatter",
       "versioningTemplate": "semver-coerced"
@@ -108,10 +90,6 @@
       "matchDatasources": ["open-vsx"],
       "enabled": true,
       "rangeStrategy": "bump"
-    },
-    {
-      "matchPackageNames": ["cpptools-linux"],
-      "enabled": false
     }
   ]
 }
