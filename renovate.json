@@ -5,107 +5,26 @@
   "customManagers": [
     {
       "customType": "regex",
-      "description": "ms-python.python",
+      "description": "VSCode extensions in code-server Dockerfile (Open VSX)",
       "fileMatch": ["^images/mid/Dockerfile$"],
       "matchStrings": [
-        "code-server\\s+--install-extension\\s+(?<packageName>ms-python\\.python)@(?<currentValue>\\d+\\.\\d+\\.\\d+)"
-      ],
-      "datasourceTemplate": "github-releases",
-      "depNameTemplate": "microsoft/vscode-python",
-      "versioningTemplate": "semver"
-    },
-    {
-      "customType": "regex",
-      "description": "ms-python.debugpy",
-      "fileMatch": ["^images/mid/Dockerfile$"],
-      "matchStrings": [
-        "code-server\\s+--install-extension\\s+(?<packageName>ms-python\\.debugpy)@(?<currentValue>\\d+\\.\\d+\\.\\d+)"
-      ],
-      "datasourceTemplate": "github-releases",
-      "depNameTemplate": "microsoft/debugpy",
-      "versioningTemplate": "semver"
-    },
-    {
-      "customType": "regex",
-      "description": "REditorSupport.r",
-      "fileMatch": ["^images/mid/Dockerfile$"],
-      "matchStrings": [
-        "code-server\\s+--install-extension\\s+(?<packageName>REditorSupport\\.r)@(?<currentValue>\\d+\\.\\d+\\.\\d+)"
-      ],
-      "datasourceTemplate": "github-releases",
-      "depNameTemplate": "REditorSupport/vscode-R",
-      "versioningTemplate": "semver"
-    },
-    {
-      "customType": "regex",
-      "description": "ms-ceintl.vscode-language-pack-fr",
-      "fileMatch": ["^images/mid/Dockerfile$"],
-      "matchStrings": [
-        "code-server\\s+--install-extension\\s+(?<packageName>ms-ceintl\\.vscode-language-pack-fr)@(?<currentValue>\\d+\\.\\d+\\.\\d+)"
-      ],
-      "datasourceTemplate": "github-releases",
-      "depNameTemplate": "microsoft/vscode-loc",
-      "versioningTemplate": "semver"
-    },
-    {
-      "customType": "regex",
-      "description": "quarto.quarto",
-      "fileMatch": ["^images/mid/Dockerfile$"],
-      "matchStrings": [
-        "code-server\\s+--install-extension\\s+(?<packageName>quarto\\.quarto)@(?<currentValue>\\d+\\.\\d+\\.\\d+)"
-      ],
-      "datasourceTemplate": "github-releases",
-      "depNameTemplate": "quarto-dev/quarto-vscode",
-      "versioningTemplate": "semver"
-    },
-    {
-      "customType": "regex",
-      "description": "dvirtz.parquet-viewer",
-      "fileMatch": ["^images/mid/Dockerfile$"],
-      "matchStrings": [
-        "code-server\\s+--install-extension\\s+(?<packageName>dvirtz\\.parquet-viewer)@(?<currentValue>\\d+\\.\\d+\\.\\d+)"
-      ],
-      "datasourceTemplate": "github-releases",
-      "depNameTemplate": "dvirtz/parquet-viewer",
-      "versioningTemplate": "semver"
-    },
-    {
-      "customType": "regex",
-      "description": "redhat.vscode-yaml",
-      "fileMatch": ["^images/mid/Dockerfile$"],
-      "matchStrings": [
-        "code-server\\s+--install-extension\\s+(?<packageName>redhat\\.vscode-yaml)@(?<currentValue>\\d+\\.\\d+\\.\\d+)"
-      ],
-      "datasourceTemplate": "github-releases",
-      "depNameTemplate": "redhat-developer/vscode-yaml",
-      "versioningTemplate": "semver"
-    },
-    {
-      "customType": "regex",
-      "description": "ms-vscode.azurecli",
-      "fileMatch": ["^images/mid/Dockerfile$"],
-      "matchStrings": [
-        "code-server\\s+--install-extension\\s+(?<packageName>ms-vscode\\.azurecli)@(?<currentValue>\\d+\\.\\d+\\.\\d+)"
-      ],
-      "datasourceTemplate": "github-releases",
-      "depNameTemplate": "microsoft/vscode-azurecli",
-      "versioningTemplate": "semver"
-    },
-    {
-      "customType": "regex",
-      "description": "mblode.pretty-formatter",
-      "fileMatch": ["^images/mid/Dockerfile$"],
-      "matchStrings": [
+        "code-server\\s+--install-extension\\s+(?<packageName>ms-python\\.python)@(?<currentValue>\\d+\\.\\d+\\.\\d+)",
+        "code-server\\s+--install-extension\\s+(?<packageName>ms-python\\.debugpy)@(?<currentValue>\\d+\\.\\d+\\.\\d+)",
+        "code-server\\s+--install-extension\\s+(?<packageName>REditorSupport\\.r)@(?<currentValue>\\d+\\.\\d+\\.\\d+)",
+        "code-server\\s+--install-extension\\s+(?<packageName>ms-ceintl\\.vscode-language-pack-fr)@(?<currentValue>\\d+\\.\\d+\\.\\d+)",
+        "code-server\\s+--install-extension\\s+(?<packageName>quarto\\.quarto)@(?<currentValue>\\d+\\.\\d+\\.\\d+)",
+        "code-server\\s+--install-extension\\s+(?<packageName>dvirtz\\.parquet-viewer)@(?<currentValue>\\d+\\.\\d+\\.\\d+)",
+        "code-server\\s+--install-extension\\s+(?<packageName>redhat\\.vscode-yaml)@(?<currentValue>\\d+\\.\\d+\\.\\d+)",
+        "code-server\\s+--install-extension\\s+(?<packageName>ms-vscode\\.azurecli)@(?<currentValue>\\d+\\.\\d+\\.\\d+)",
         "code-server\\s+--install-extension\\s+(?<packageName>mblode\\.pretty-formatter)@(?<currentValue>\\d+\\.\\d+\\.\\d+)"
       ],
-      "datasourceTemplate": "github-releases",
-      "depNameTemplate": "mblode/vscode-pretty-formatter",
-      "versioningTemplate": "semver"
+      "datasourceTemplate": "open-vsx",
+      "versioningTemplate": "semver-coerced"
     }
   ],
   "packageRules": [
     {
-      "matchDatasources": ["github-releases"],
+      "matchDatasources": ["open-vsx"],
       "enabled": true,
       "rangeStrategy": "bump"
     }
