@@ -48,15 +48,15 @@
       "versioningTemplate": "semver-coerced"
     },
     {
-      "customType": "regex",
-      "description": "quarto.quarto",
-      "fileMatch": ["^images/mid/Dockerfile$"],
-      "matchStrings": [
-        "code-server\\s+--install-extension\\s+(?<packageName>quarto\\.quarto)@(?<currentValue>\\d+\\.\\d+\\.\\d+)"
-      ],
-      "datasourceTemplate": "open-vsx",
-      "packageNameTemplate": "quarto/quarto",
-      "versioningTemplate": "semver-coerced"
+  "customType": "regex",
+  "description": "quarto.quarto",
+  "fileMatch": ["^images/mid/Dockerfile$"],
+  "matchStrings": [
+    "code-server\\s+--install-extension\\s+quarto\\.quarto@(?<currentValue>\\d+\\.\\d+\\.\\d+)"
+  ],
+  "datasourceTemplate": "open-vsx",
+  "packageNameTemplate": "quarto/quarto",
+  "versioningTemplate": "semver-coerced"
     },
     {
       "customType": "regex",
