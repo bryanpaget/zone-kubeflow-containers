@@ -1,28 +1,28 @@
 {
-  "$schema": "https://docs.renovatebot.com/renovate-schema.json", 
-  "ignoreDeps": ["k8scc01covidacr.azurecr.io/sas4c"],
+  "$schema": "https://docs.renovatebot.com/renovate-schema.json",
   "dependencyDashboard": true,
   "customManagers": [
     {
       "customType": "regex",
-      "description": "Update VSCode extensions from Open VSX",
+      "description": "VSCode extensions from GitHub",
       "fileMatch": ["^images/mid/Dockerfile$"],
       "matchStrings": [
-        "code-server\\s+--install-extension\\s+(?<packageName>[^\\.@\\s]+\\.[^@\\s]+)@(?<currentValue>\\d+\\.\\d+\\.\\d+)"
+        "code-server\\s+--install-extension\\s+(?<packageName>ms-python\\.python)@(?<currentValue>\\d+\\.\\d+\\.\\d+)"
       ],
-      "datasourceTemplate": "open-vsx",
-      "versioningTemplate": "semver-coerced"
-    }
-  ],
-  "packageRules": [
-    {
-      "matchDatasources": ["open-vsx"],
-      "enabled": true,
-      "rangeStrategy": "bump"
+      "datasourceTemplate": "github-releases",
+      "depNameTemplate": "microsoft/vscode-python",
+      "versioningTemplate": "semver"
     },
     {
-      "matchPackageNames": ["cpptools-linux"],
-      "enabled": false
+      "customType": "regex",
+      "description": "Quarto extension",
+      "fileMatch": ["^images/mid/Dockerfile$"],
+      "matchStrings": [
+        "code-server\\s+--install-extension\\s+(?<packageName>quarto\\.quarto)@(?<currentValue>\\d+\\.\\d+\\.\\d+)"
+      ],
+      "datasourceTemplate": "github-releases",
+      "depNameTemplate": "quarto-dev/quarto-vscode",
+      "versioningTemplate": "semver"
     }
   ]
 }
