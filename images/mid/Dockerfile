@@ -39,7 +39,7 @@ RUN wget -q "${VSCODE_URL}" -O ./vscode.deb \
     code-server --install-extension dvirtz.parquet-viewer@2.9.0 && \
     code-server --install-extension redhat.vscode-yaml@1.15.0 && \
     code-server --install-extension ms-vscode.azurecli@0.6.0 && \
-    code-server --install-extension eamodio.gitlens@14.4.1 && \
+    code-server --install-extension eamodio.gitlens@2025.6.2105 && \
     code-server --install-extension ms-toolsai.jupyter@2024.2.1002251618 && \
     code-server --install-extension ms-vscode.cpptools@1.18.0 && \
     code-server --install-extension esbenp.prettier-vscode@10.1.0 && \
