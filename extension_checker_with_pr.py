@@ -109,7 +109,7 @@ def create_github_pull_request(outdated_extensions):
     payload = {
         "title": "Automated: Update VSCode Extensions",
         "head": BRANCH_NAME,
-        "base": "main",
+        "base": "master",
         "body": commit_message
     }
     response = requests.post(url, json=payload, headers=headers)
