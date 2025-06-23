@@ -71,54 +71,51 @@ def update_dockerfile(ext_id, old_version, new_version):
         print(f"Error updating {ext_id}: {e}")
         return False
 
-def create_github_pull_request(outdated_extensions):
-    if not outdated_extensions:
-        print("No updates to commit.")
-        return
-
+def create_individual_prs(outdated_extensions):
     subprocess.run(["git", "config", "user.name", GIT_USERNAME], check=True)
     subprocess.run(["git", "config", "user.email", GIT_EMAIL], check=True)
 
-    try:
-        subprocess.run(["git", "fetch", "origin", BRANCH_NAME], check=True)
-        subprocess.run(["git", "checkout", BRANCH_NAME], check=True)
-        subprocess.run(["git", "pull", "--rebase", "origin", BRANCH_NAME], check=True)
-    except subprocess.CalledProcessError:
-        subprocess.run(["git", "checkout", "-b", BRANCH_NAME], check=True)
-
-    # Stage changes
-    subprocess.run(["git", "add", DOCKERFILE_PATH], check=True)
-
-    # Build commit message
-    commit_message = "Update VSCode extensions in Dockerfile:\n"
     for ext in outdated_extensions:
-        commit_message += f"- {ext['id']}: {ext['old_version']} -> {ext['new_version']}\n"
+        short_id = ext['id'].replace(".", "-").replace("/", "-").replace("@", "-").replace(".vsix", "")
+        branch_name = f"update/{short_id}-{ext['new_version']}"
 
-    # Commit
-    subprocess.run(["git", "commit", "-m", commit_message], check=True)
+        # Checkout main/master and create a clean branch from there
+        subprocess.run(["git", "checkout", "master"], check=True)
+        subprocess.run(["git", "pull", "origin", "master"], check=True)
+        subprocess.run(["git", "checkout", "-b", branch_name], check=True)
 
-    # Push
-    subprocess.run(["git", "push", "--force", "origin", BRANCH_NAME], check=True)
+        # Restore the original Dockerfile before modifying it
+        subprocess.run(["git", "restore", DOCKERFILE_PATH], check=True)
 
-    # Create PR
-    url = f"https://api.github.com/repos/{REPO_OWNER}/{REPO_NAME}/pulls"
-    headers = {
-        "Authorization": f"token {GITHUB_TOKEN}",
-        "Accept": "application/vnd.github.v3+json"
-    }
-    payload = {
-        "title": "Automated: Update VSCode Extensions",
-        "head": BRANCH_NAME,
-        "base": "master",
-        "body": commit_message
-    }
-    response = requests.post(url, json=payload, headers=headers)
-    if response.status_code == 201:
-        print(f"Pull request created: {response.json().get('html_url')}")
-    elif response.status_code == 422 and "A pull request already exists" in response.text:
-        print("PR already exists.")
-    else:
-        print(f"Failed to create pull request: {response.status_code}, {response.text}")
+        # Apply just this extension's update
+        update_dockerfile(ext['id'], ext['old_version'], ext['new_version'])
+
+        # Commit and push
+        subprocess.run(["git", "add", DOCKERFILE_PATH], check=True)
+        commit_msg = f"Update {ext['id']} to {ext['new_version']}"
+        subprocess.run(["git", "commit", "-m", commit_msg], check=True)
+        subprocess.run(["git", "push", "--force", "--set-upstream", "origin", branch_name], check=True)
+
+        # Create PR
+        url = f"https://api.github.com/repos/{REPO_OWNER}/{REPO_NAME}/pulls"
+        headers = {
+            "Authorization": f"token {GITHUB_TOKEN}",
+            "Accept": "application/vnd.github.v3+json"
+        }
+        payload = {
+            "title": f"Automated: {commit_msg}",
+            "head": branch_name,
+            "base": "master",  # Change this if your default branch is different
+            "body": f"This PR updates `{ext['id']}` from `{ext['old_version']}` to `{ext['new_version']}`."
+        }
+        response = requests.post(url, json=payload, headers=headers)
+        if response.status_code == 201:
+            print(f"✅ PR created: {response.json().get('html_url')}")
+        elif response.status_code == 422 and "A pull request already exists" in response.text:
+            print(f"⚠️  PR already exists for {branch_name}")
+        else:
+            print(f"❌ Failed to create PR for {ext['id']}: {response.status_code}, {response.text}")
+
 
 # --------------------
 # Main Execution Flow
@@ -156,4 +153,5 @@ for gvsix in github_vsix:
     else:
         print(f"  - {gvsix['repo']} {gvsix['file']} (current: {gvsix['version']}, latest: {latest or 'unknown'})")
 
-create_github_pull_request(outdated_extensions)
+
+create_individual_prs(outdated_extensions)
