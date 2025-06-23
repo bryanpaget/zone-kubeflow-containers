@@ -77,8 +77,16 @@ def create_github_pull_request(outdated_extensions):
         return
 
     # Configure Git
-    subprocess.run(["git", "config", "user.email", GIT_EMAIL], check=True)
-    subprocess.run(["git", "config", "user.name", GIT_USERNAME], check=True)
+    try:
+        subprocess.run(["git", "fetch", "origin", BRANCH_NAME], check=True)
+        subprocess.run(["git", "checkout", BRANCH_NAME], check=True)
+        subprocess.run(["git", "pull", "--rebase", "origin", BRANCH_NAME], check=True)
+    except subprocess.CalledProcessError:
+        subprocess.run(["git", "checkout", "-b", BRANCH_NAME], check=True)
+
+# Commit and push as normal
+subprocess.run(["git", "push", "--force", "origin", BRANCH_NAME], check=True)
+
 
     # Create a new branch
     try:
