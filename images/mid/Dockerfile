@@ -43,7 +43,7 @@ RUN wget -q "${VSCODE_URL}" -O ./vscode.deb \
     code-server --install-extension ms-toolsai.jupyter@2024.2.1002251618 && \
     code-server --install-extension ms-vscode.cpptools@1.18.0 && \
     code-server --install-extension esbenp.prettier-vscode@10.1.0 && \
-    code-server --install-extension gruntfuggly.todo-tree@0.0.226 && \
+    code-server --install-extension gruntfuggly.todo-tree@0.0.215 && \
     code-server --install-extension mblode.pretty-formatter@0.2.1 && \
     code-server --install-extension cpptools-linux.vsix && \
     mv $CS_DEFAULT_HOME/* $CS_TEMP_HOME && \
