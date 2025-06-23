@@ -3,13 +3,13 @@ import os
 import requests
 import subprocess
 
-# Configuration - MODIFY THESE AS NEEDED
+# Configuration
 DOCKERFILE_PATH = "images/mid/Dockerfile"
 GITHUB_TOKEN = os.environ.get("GITHUB_TOKEN")
 REPO_OWNER = "StatCan"
 REPO_NAME = "zone-kubeflow-containers"
-GIT_EMAIL = "your_bot_email@example.com"  # Set a bot email for commit
-GIT_USERNAME = "YourUpdateBot"  # Set a bot username for commit
+GIT_EMAIL = "bryan.paget@statcan.gc.ca"  # Set a bot email for commit
+GIT_USERNAME = "Brybot"  # Set a bot username for commit
 BRANCH_NAME = "update-vscode-extensions"
 
 def extract_extensions_and_vsix(dockerfile_path):
