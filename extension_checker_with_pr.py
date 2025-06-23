@@ -6,7 +6,7 @@ import subprocess
 # Configuration
 DOCKERFILE_PATH = "images/mid/Dockerfile"
 GITHUB_TOKEN = os.environ.get("GITHUB_TOKEN")
-REPO_OWNER = "StatCan"
+REPO_OWNER = "bryanpaget"
 REPO_NAME = "zone-kubeflow-containers"
 GIT_EMAIL = "bryan.paget@statcan.gc.ca"
 GIT_USERNAME = "Brybot"
