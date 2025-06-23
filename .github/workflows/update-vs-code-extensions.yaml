@@ -23,4 +23,4 @@ jobs:
       - name: Check for extension updates
         run: python extension_checker_with_pr.py
         env:
-          GITHUB_TOKEN: ${{ secrets.NAMESPACE_CLEANER_TOKEN }}
+          GITHUB_TOKEN: ${{ secrets.MY_TOKEN }}
