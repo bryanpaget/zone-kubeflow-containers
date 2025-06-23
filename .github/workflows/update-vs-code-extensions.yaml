@@ -1,6 +1,7 @@
 name: VSCode Extension Version Check
 
 on:
+  push:
   schedule:
     # Run weekly on Monday
     # - cron: '0 9 * * 1'
