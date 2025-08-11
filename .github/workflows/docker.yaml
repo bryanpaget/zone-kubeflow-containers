@@ -29,7 +29,7 @@ jobs:
       REGISTRY_NAME: "k8scc01covidacr.azurecr.io"
       branch-name: ${{ steps.getBranch.outputs.branch-name }}
     steps:
-      - uses: actions/checkout@v4
+      - uses: actions/checkout@v5
 
       - name: Get branch name
         id: getBranch

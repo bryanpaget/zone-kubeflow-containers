@@ -27,7 +27,7 @@ jobs:
       is-diff: ${{ steps.check-changes.outputs.is-diff }}
 
     steps:
-      - uses: actions/checkout@v4
+      - uses: actions/checkout@v5
 
       - name: Fetch target branch
         if: ${{ github.event_name == 'pull_request' }}
