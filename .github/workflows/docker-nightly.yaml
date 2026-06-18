@@ -11,7 +11,7 @@ jobs:
       REGISTRY_NAME: "k8scc01covidacr.azurecr.io"
       TAG: "v2"
     steps:
-      - uses: actions/checkout@v4
+      - uses: actions/checkout@v7
 
       - name: Set up environment
         run: echo "Environment has been set up."
